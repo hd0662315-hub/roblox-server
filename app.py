@@ -26,11 +26,13 @@ def launch_bot():
     job_id = data.get("JobId")
     original_username = data.get("Username")
 
+    # توليد اسم البوت الجديد
     bot_username = generate_bot_name(original_username)
 
-    # 🚀 رابط دخول مباشر ومبسط تفهمه روبلوكس فوراً لفتح سيرفرك بالظبط
+    # 🚀 الرابط الرسمي المباشر لتشغيل الحساب البديل في سيرفرك
     roblox_uri = f"roblox://placeId={place_id}&gameJobId={job_id}"
 
+    # نرسل البيانات للأكسكيوتور عشان هو اللي يفتح اللعبة عندك
     return (
         jsonify(
             {
@@ -44,5 +46,6 @@ def launch_bot():
 
 
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 5000))
+    # تحديد البورت المتوافق مع Render سحابياً
+    port = int(os.environ.get("PORT", 10000))
     app.run(host="0.0.0.0", port=port)
